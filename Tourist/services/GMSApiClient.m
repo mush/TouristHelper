@@ -106,7 +106,7 @@
     BFTaskCompletionSource *bcs = [BFTaskCompletionSource taskCompletionSource];
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{@"key": kApiKey,
-                                                                                      @"radius" : @"25000",
+                                                                                      @"radius" : @"5000",
                                                                                       @"location": [NSString stringWithFormat:@"%lf,%lf", coordinate.latitude, coordinate.longitude],
                                                                                       @"types": [types componentsJoinedByString:@"|"]
                                                                                       }];

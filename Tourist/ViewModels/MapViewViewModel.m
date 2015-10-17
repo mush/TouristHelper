@@ -45,7 +45,14 @@
         
         [[apiClient_ taskForRadarSearchForCoordinate:_currentLocation types:[MapViewViewModel allowedTypes]] continueWithBlock:^id(BFTask *task) {
             __strong MapViewViewModel *strongSelf = weakSelf;
-            strongSelf.places = [task.result subarrayWithRange:NSMakeRange(0, 100)];
+            
+            if ([task.result count] > 100) {
+                strongSelf.places = [task.result subarrayWithRange:NSMakeRange(0, 100)];
+            }else{
+                strongSelf.places = task.result;
+            }
+            
+            
             return nil;
         }];
         
