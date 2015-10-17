@@ -1,0 +1,574 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0380AB6B234A11F9BD55BDD8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7438D66119EEB8920CC3EF68 /* libPods.a */; };
+		221754831BD29405007669D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754821BD29405007669D0 /* main.m */; };
+		2217548E1BD29405007669D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2217548D1BD29405007669D0 /* Assets.xcassets */; };
+		221754911BD29405007669D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2217548F1BD29405007669D0 /* LaunchScreen.storyboard */; };
+		2217549C1BD29405007669D0 /* TouristTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2217549B1BD29405007669D0 /* TouristTests.m */; };
+		221754B01BD294AC007669D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754AD1BD294AC007669D0 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
+		221754B11BD294AC007669D0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754AF1BD294AC007669D0 /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
+		221754B41BD294BC007669D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221754B21BD294BC007669D0 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		221754C61BD295F5007669D0 /* GMSApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754B81BD295F5007669D0 /* GMSApiClient.m */; settings = {ASSET_TAGS = (); }; };
+		221754C71BD295F5007669D0 /* GoogleGeometryVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754BC1BD295F5007669D0 /* GoogleGeometryVO.m */; settings = {ASSET_TAGS = (); }; };
+		221754C81BD295F5007669D0 /* GoogleLocationVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754BE1BD295F5007669D0 /* GoogleLocationVO.m */; settings = {ASSET_TAGS = (); }; };
+		221754C91BD295F5007669D0 /* GooglePhotoVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754C01BD295F5007669D0 /* GooglePhotoVO.m */; settings = {ASSET_TAGS = (); }; };
+		221754CA1BD295F5007669D0 /* GooglePlaceVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754C21BD295F5007669D0 /* GooglePlaceVO.m */; settings = {ASSET_TAGS = (); }; };
+		221754CB1BD295F5007669D0 /* MapViewViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754C51BD295F5007669D0 /* MapViewViewModel.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		221754981BD29405007669D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 221754761BD29405007669D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2217547D1BD29405007669D0;
+			remoteInfo = Tourist;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1524E1269570D3680B51D2C2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2217547E1BD29405007669D0 /* Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		221754821BD29405007669D0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2217548D1BD29405007669D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		221754901BD29405007669D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		221754921BD29405007669D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		221754971BD29405007669D0 /* TouristTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouristTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2217549B1BD29405007669D0 /* TouristTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouristTests.m; sourceTree = "<group>"; };
+		2217549D1BD29405007669D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		221754AC1BD294AC007669D0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		221754AD1BD294AC007669D0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		221754AE1BD294AC007669D0 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		221754AF1BD294AC007669D0 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		221754B31BD294BC007669D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		221754B71BD295F5007669D0 /* GMSApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSApiClient.h; sourceTree = "<group>"; };
+		221754B81BD295F5007669D0 /* GMSApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSApiClient.m; sourceTree = "<group>"; };
+		221754B91BD295F5007669D0 /* GMSApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSApiKey.h; sourceTree = "<group>"; };
+		221754BB1BD295F5007669D0 /* GoogleGeometryVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleGeometryVO.h; sourceTree = "<group>"; };
+		221754BC1BD295F5007669D0 /* GoogleGeometryVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleGeometryVO.m; sourceTree = "<group>"; };
+		221754BD1BD295F5007669D0 /* GoogleLocationVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleLocationVO.h; sourceTree = "<group>"; };
+		221754BE1BD295F5007669D0 /* GoogleLocationVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleLocationVO.m; sourceTree = "<group>"; };
+		221754BF1BD295F5007669D0 /* GooglePhotoVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooglePhotoVO.h; sourceTree = "<group>"; };
+		221754C01BD295F5007669D0 /* GooglePhotoVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooglePhotoVO.m; sourceTree = "<group>"; };
+		221754C11BD295F5007669D0 /* GooglePlaceVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooglePlaceVO.h; sourceTree = "<group>"; };
+		221754C21BD295F5007669D0 /* GooglePlaceVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooglePlaceVO.m; sourceTree = "<group>"; };
+		221754C41BD295F5007669D0 /* MapViewViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewViewModel.h; sourceTree = "<group>"; };
+		221754C51BD295F5007669D0 /* MapViewViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewViewModel.m; sourceTree = "<group>"; };
+		221754CC1BD29612007669D0 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		7438D66119EEB8920CC3EF68 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB7774FC5A11118AC7C2F6BD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2217547B1BD29405007669D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0380AB6B234A11F9BD55BDD8 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		221754941BD29405007669D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		221754751BD29405007669D0 = {
+			isa = PBXGroup;
+			children = (
+				221754801BD29405007669D0 /* Tourist */,
+				2217549A1BD29405007669D0 /* TouristTests */,
+				2217547F1BD29405007669D0 /* Products */,
+				B9619BD15D21A63FF6640EDC /* Pods */,
+				FB41C7C5888CD656A1337201 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2217547F1BD29405007669D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2217547E1BD29405007669D0 /* Tourist.app */,
+				221754971BD29405007669D0 /* TouristTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		221754801BD29405007669D0 /* Tourist */ = {
+			isa = PBXGroup;
+			children = (
+				221754B51BD295F5007669D0 /* category */,
+				221754B61BD295F5007669D0 /* services */,
+				221754C31BD295F5007669D0 /* ViewModels */,
+				221754B21BD294BC007669D0 /* Main.storyboard */,
+				221754AC1BD294AC007669D0 /* AppDelegate.h */,
+				221754AD1BD294AC007669D0 /* AppDelegate.m */,
+				221754AE1BD294AC007669D0 /* MapViewController.h */,
+				221754AF1BD294AC007669D0 /* MapViewController.m */,
+				2217548D1BD29405007669D0 /* Assets.xcassets */,
+				2217548F1BD29405007669D0 /* LaunchScreen.storyboard */,
+				221754921BD29405007669D0 /* Info.plist */,
+				221754811BD29405007669D0 /* Supporting Files */,
+			);
+			path = Tourist;
+			sourceTree = "<group>";
+		};
+		221754811BD29405007669D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				221754821BD29405007669D0 /* main.m */,
+				221754CC1BD29612007669D0 /* PrefixHeader.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2217549A1BD29405007669D0 /* TouristTests */ = {
+			isa = PBXGroup;
+			children = (
+				2217549B1BD29405007669D0 /* TouristTests.m */,
+				2217549D1BD29405007669D0 /* Info.plist */,
+			);
+			path = TouristTests;
+			sourceTree = "<group>";
+		};
+		221754B51BD295F5007669D0 /* category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		221754B61BD295F5007669D0 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				221754B71BD295F5007669D0 /* GMSApiClient.h */,
+				221754B81BD295F5007669D0 /* GMSApiClient.m */,
+				221754B91BD295F5007669D0 /* GMSApiKey.h */,
+				221754BA1BD295F5007669D0 /* Objects */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
+		221754BA1BD295F5007669D0 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				221754BB1BD295F5007669D0 /* GoogleGeometryVO.h */,
+				221754BC1BD295F5007669D0 /* GoogleGeometryVO.m */,
+				221754BD1BD295F5007669D0 /* GoogleLocationVO.h */,
+				221754BE1BD295F5007669D0 /* GoogleLocationVO.m */,
+				221754BF1BD295F5007669D0 /* GooglePhotoVO.h */,
+				221754C01BD295F5007669D0 /* GooglePhotoVO.m */,
+				221754C11BD295F5007669D0 /* GooglePlaceVO.h */,
+				221754C21BD295F5007669D0 /* GooglePlaceVO.m */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		221754C31BD295F5007669D0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				221754C41BD295F5007669D0 /* MapViewViewModel.h */,
+				221754C51BD295F5007669D0 /* MapViewViewModel.m */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B9619BD15D21A63FF6640EDC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB7774FC5A11118AC7C2F6BD /* Pods.debug.xcconfig */,
+				1524E1269570D3680B51D2C2 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FB41C7C5888CD656A1337201 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7438D66119EEB8920CC3EF68 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2217547D1BD29405007669D0 /* Tourist */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 221754A01BD29405007669D0 /* Build configuration list for PBXNativeTarget "Tourist" */;
+			buildPhases = (
+				514DD8B4B8121E40C72FE9B6 /* Check Pods Manifest.lock */,
+				2217547A1BD29405007669D0 /* Sources */,
+				2217547B1BD29405007669D0 /* Frameworks */,
+				2217547C1BD29405007669D0 /* Resources */,
+				5998FC94F794EA411CF9ECA4 /* Embed Pods Frameworks */,
+				6E692B7F9948597DA5DBE86C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tourist;
+			productName = Tourist;
+			productReference = 2217547E1BD29405007669D0 /* Tourist.app */;
+			productType = "com.apple.product-type.application";
+		};
+		221754961BD29405007669D0 /* TouristTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 221754A31BD29405007669D0 /* Build configuration list for PBXNativeTarget "TouristTests" */;
+			buildPhases = (
+				221754931BD29405007669D0 /* Sources */,
+				221754941BD29405007669D0 /* Frameworks */,
+				221754951BD29405007669D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				221754991BD29405007669D0 /* PBXTargetDependency */,
+			);
+			name = TouristTests;
+			productName = TouristTests;
+			productReference = 221754971BD29405007669D0 /* TouristTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		221754761BD29405007669D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Ashiqur Rahman";
+				TargetAttributes = {
+					2217547D1BD29405007669D0 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					221754961BD29405007669D0 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 2217547D1BD29405007669D0;
+					};
+				};
+			};
+			buildConfigurationList = 221754791BD29405007669D0 /* Build configuration list for PBXProject "Tourist" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 221754751BD29405007669D0;
+			productRefGroup = 2217547F1BD29405007669D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2217547D1BD29405007669D0 /* Tourist */,
+				221754961BD29405007669D0 /* TouristTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2217547C1BD29405007669D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				221754B41BD294BC007669D0 /* Main.storyboard in Resources */,
+				221754911BD29405007669D0 /* LaunchScreen.storyboard in Resources */,
+				2217548E1BD29405007669D0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		221754951BD29405007669D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		514DD8B4B8121E40C72FE9B6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5998FC94F794EA411CF9ECA4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E692B7F9948597DA5DBE86C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2217547A1BD29405007669D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				221754C81BD295F5007669D0 /* GoogleLocationVO.m in Sources */,
+				221754CA1BD295F5007669D0 /* GooglePlaceVO.m in Sources */,
+				221754C71BD295F5007669D0 /* GoogleGeometryVO.m in Sources */,
+				221754B11BD294AC007669D0 /* MapViewController.m in Sources */,
+				221754C91BD295F5007669D0 /* GooglePhotoVO.m in Sources */,
+				221754CB1BD295F5007669D0 /* MapViewViewModel.m in Sources */,
+				221754C61BD295F5007669D0 /* GMSApiClient.m in Sources */,
+				221754B01BD294AC007669D0 /* AppDelegate.m in Sources */,
+				221754831BD29405007669D0 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		221754931BD29405007669D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2217549C1BD29405007669D0 /* TouristTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		221754991BD29405007669D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2217547D1BD29405007669D0 /* Tourist */;
+			targetProxy = 221754981BD29405007669D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2217548F1BD29405007669D0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				221754901BD29405007669D0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		221754B21BD294BC007669D0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				221754B31BD294BC007669D0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2217549E1BD29405007669D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2217549F1BD29405007669D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		221754A11BD29405007669D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB7774FC5A11118AC7C2F6BD /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = Tourist/PrefixHeader.pch;
+				INFOPLIST_FILE = Tourist/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mush.Tourist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		221754A21BD29405007669D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1524E1269570D3680B51D2C2 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = Tourist/PrefixHeader.pch;
+				INFOPLIST_FILE = Tourist/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mush.Tourist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		221754A41BD29405007669D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB7774FC5A11118AC7C2F6BD /* Pods.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_PREFIX_HEADER = Tourist/PrefixHeader.pch;
+				INFOPLIST_FILE = TouristTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mush.TouristTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tourist.app/Tourist";
+			};
+			name = Debug;
+		};
+		221754A51BD29405007669D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1524E1269570D3680B51D2C2 /* Pods.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_PREFIX_HEADER = Tourist/PrefixHeader.pch;
+				INFOPLIST_FILE = TouristTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mush.TouristTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tourist.app/Tourist";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		221754791BD29405007669D0 /* Build configuration list for PBXProject "Tourist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2217549E1BD29405007669D0 /* Debug */,
+				2217549F1BD29405007669D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		221754A01BD29405007669D0 /* Build configuration list for PBXNativeTarget "Tourist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				221754A11BD29405007669D0 /* Debug */,
+				221754A21BD29405007669D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		221754A31BD29405007669D0 /* Build configuration list for PBXNativeTarget "TouristTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				221754A41BD29405007669D0 /* Debug */,
+				221754A51BD29405007669D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 221754761BD29405007669D0 /* Project object */;
+}
