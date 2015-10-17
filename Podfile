@@ -7,6 +7,7 @@ pod "GoogleMaps"
 pod "AFNetworking"
 pod "JSONModel"
 pod "Bolts"
+pod "KVOController"
 
 target 'Tourist' do
 

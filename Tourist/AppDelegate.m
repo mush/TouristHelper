@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "GMSApiKey.h"
 @interface AppDelegate (){
     id services_;
 }
@@ -19,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [GMSServices provideAPIKey:@"AIzaSyAKEz0g1zWzF6f022acf5JyE4IWFu96p0o"];
+    [GMSServices provideAPIKey:kApiKey];
     services_ = [GMSServices sharedServices];
     
     NSLog(@"Open source licenses:\n%@", [GMSServices openSourceLicenseInfo]);

@@ -6,7 +6,7 @@
 
 #import <GoogleMaps/GoogleMaps.h>
 
-#import "GMSApiClient.h"
+#import "GooglePlaceVO.h"
 
 @interface MapViewController ()
 
@@ -14,72 +14,59 @@
 
 @implementation MapViewController {
     GMSMapView *mapView_;
-    BOOL firstLocationUpdate_;
-    GMSApiClient *apiClient_;
 }
 
-+(NSArray*)allowedTypes{
-    return @[@"food", @"park"];
+-(void)awakeFromNib{
+    
+    [super awakeFromNib];
+    self.viewModel = [[MapViewViewModel alloc]init];
+    
 }
-
 - (void)viewDidLoad {
-  [super viewDidLoad];
-
-  GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.868
-                                                          longitude:151.2086
-                                                               zoom:12];
-
-  mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-  mapView_.settings.compassButton = YES;
-  mapView_.settings.myLocationButton = YES;
+    [super viewDidLoad];
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.868
+                                                            longitude:151.2086
+                                                                 zoom:12];
+    
+    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView_.settings.compassButton = YES;
+    mapView_.settings.myLocationButton = YES;
     mapView_.settings.zoomGestures = YES;
-
-  // Listen to the myLocation property of GMSMapView.
-  [mapView_ addObserver:self
-             forKeyPath:@"myLocation"
-                options:NSKeyValueObservingOptionNew
-                context:NULL];
-
-  self.view = mapView_;
-
-  // Ask for My Location data after the map has already been added to the UI.
-  dispatch_async(dispatch_get_main_queue(), ^{
-    mapView_.myLocationEnabled = YES;
-  });
+        
+    [self.KVOController observe:mapView_ keyPath:@"myLocation" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+        
+        if (!self.viewModel.firstLocationUpdate) {
+        
+            CLLocation *location = [change objectForKey:NSKeyValueChangeNewKey];
+            
+            [self.viewModel handleLocationUpdateForLocation:location.coordinate];
+            
+            mapView_.camera = [GMSCameraPosition cameraWithTarget:location.coordinate
+                                                         zoom:14];            
+        }
+    }];
     
-    apiClient_ = [[GMSApiClient alloc] init];
+    self.view = mapView_;
+    
+    // Ask for My Location data after the map has already been added to the UI.
+    dispatch_async(dispatch_get_main_queue(), ^{
+        mapView_.myLocationEnabled = YES;
+    });
     
     
-    
+    [self.KVOController observe:self.viewModel keyPath:@"places" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+        for (GooglePlaceVO *vo in change[NSKeyValueChangeNewKey]) {
+            GMSMarker *marker = [[GMSMarker alloc] init];
+            marker.title = vo.name;
+            marker.position = CLLocationCoordinate2DMake(vo.geometry.location.lat, vo.geometry.location.lng);
+            marker.map = mapView_;
+        }
+    }];
     
 }
 
 - (void)dealloc {
-  [mapView_ removeObserver:self
-                forKeyPath:@"myLocation"
-                   context:NULL];
-}
-
-#pragma mark - KVO updates
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context {
-  if (!firstLocationUpdate_) {
-    // If the first location update has not yet been recieved, then jump to that
-    // location.
-    firstLocationUpdate_ = YES;
-    CLLocation *location = [change objectForKey:NSKeyValueChangeNewKey];
-    mapView_.camera = [GMSCameraPosition cameraWithTarget:location.coordinate
-                                                     zoom:14];
-      
-    [[apiClient_ taskForRadarSearchForCoordinate:location.coordinate types:[MapViewController allowedTypes]] continueWithBlock:^id(BFTask *task) {
-        NSLog(@"%ld", ((NSArray*)task.result).count);
-        return nil;
-    }];
-      
-  }
 }
 
 @end
