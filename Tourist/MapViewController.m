@@ -58,7 +58,6 @@
     [self.KVOController observe:self.viewModel keyPath:@"places" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
         for (GooglePlaceVO *vo in change[NSKeyValueChangeNewKey]) {
             GMSMarker *marker = [[GMSMarker alloc] init];
-            marker.title = vo.name;
             marker.position = CLLocationCoordinate2DMake(vo.geometry.location.lat, vo.geometry.location.lng);
             marker.map = mapView_;
         }
