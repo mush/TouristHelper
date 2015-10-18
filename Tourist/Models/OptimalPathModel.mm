@@ -44,7 +44,8 @@
         visited[nextMinLocIndex] = true;
         locNum--;
     }
-    
+    [optimalPath removeLastCoordinate];
+    delete [] visited;
     
     [optimalPath addCoordinate:origin];
     return [NSDictionary dictionaryWithObjectsAndKeys:optimalPath,@"optimal_path", [NSNumber numberWithDouble:tDistance], @"total_distance", nil];

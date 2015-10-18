@@ -23,7 +23,7 @@
 		221755001BD3697C007669D0 /* BaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754FF1BD3697C007669D0 /* BaseService.m */; settings = {ASSET_TAGS = (); }; };
 		22E748841BD379FA00010EA0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E748831BD379FA00010EA0 /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
 		22E748881BD39D3000010EA0 /* MathArc.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E748871BD39D3000010EA0 /* MathArc.m */; settings = {ASSET_TAGS = (); }; };
-		22E7488D1BD39DCD00010EA0 /* OptimalPathModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7488C1BD39DCD00010EA0 /* OptimalPathModel.m */; settings = {ASSET_TAGS = (); }; };
+		22E7488D1BD39DCD00010EA0 /* OptimalPathModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22E7488C1BD39DCD00010EA0 /* OptimalPathModel.mm */; settings = {ASSET_TAGS = (); }; };
 		22E748911BD3A59A00010EA0 /* MarkerInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E748901BD3A59A00010EA0 /* MarkerInfoView.m */; settings = {ASSET_TAGS = (); }; };
 		22E748941BD3AFDB00010EA0 /* aeroplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E748921BD3AFDB00010EA0 /* aeroplane.png */; settings = {ASSET_TAGS = (); }; };
 		22E748951BD3AFDB00010EA0 /* aeroplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E748931BD3AFDB00010EA0 /* aeroplane@2x.png */; settings = {ASSET_TAGS = (); }; };
@@ -73,7 +73,7 @@
 		22E748861BD39D3000010EA0 /* MathArc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathArc.h; sourceTree = "<group>"; };
 		22E748871BD39D3000010EA0 /* MathArc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathArc.m; sourceTree = "<group>"; };
 		22E7488B1BD39DCD00010EA0 /* OptimalPathModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptimalPathModel.h; sourceTree = "<group>"; };
-		22E7488C1BD39DCD00010EA0 /* OptimalPathModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptimalPathModel.m; sourceTree = "<group>"; };
+		22E7488C1BD39DCD00010EA0 /* OptimalPathModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OptimalPathModel.mm; sourceTree = "<group>"; };
 		22E7488F1BD3A59A00010EA0 /* MarkerInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerInfoView.h; sourceTree = "<group>"; };
 		22E748901BD3A59A00010EA0 /* MarkerInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerInfoView.m; sourceTree = "<group>"; };
 		22E748921BD3AFDB00010EA0 /* aeroplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aeroplane.png; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				22E7488B1BD39DCD00010EA0 /* OptimalPathModel.h */,
-				22E7488C1BD39DCD00010EA0 /* OptimalPathModel.m */,
+				22E7488C1BD39DCD00010EA0 /* OptimalPathModel.mm */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -425,7 +425,7 @@
 				221754FA1BD368F6007669D0 /* GoogleGeometryVO.m in Sources */,
 				221754CB1BD295F5007669D0 /* MapViewViewModel.m in Sources */,
 				221755001BD3697C007669D0 /* BaseService.m in Sources */,
-				22E7488D1BD39DCD00010EA0 /* OptimalPathModel.m in Sources */,
+				22E7488D1BD39DCD00010EA0 /* OptimalPathModel.mm in Sources */,
 				221754B01BD294AC007669D0 /* AppDelegate.m in Sources */,
 				221754831BD29405007669D0 /* main.m in Sources */,
 				221754FD1BD368F6007669D0 /* GooglePlaceVO.m in Sources */,

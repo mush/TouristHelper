@@ -13,13 +13,14 @@
 
 @end
 
-@interface MapViewController ()<GMSMapViewDelegate>
+@interface MapViewController ()<GMSMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @end
 
 @implementation MapViewController {
     GMSMapView *mapView_;
     MarkerInfoView *markerInfoView_;
+    UITableView *tableView_;
 }
 
 #pragma mark - private
@@ -45,20 +46,7 @@
     }
     return colorSpans;
 }
-#pragma mark -
-
--(void)awakeFromNib{
-    
-    [super awakeFromNib];
-    self.viewModel = [[MapViewViewModel alloc]init];
-    
-}
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:self.viewModel.rightNavButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(showPath:)];
-    
+- (void)setupMapView {
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.868
                                                             longitude:151.2086
                                                                  zoom:12];
@@ -68,30 +56,32 @@
     mapView_.settings.myLocationButton = YES;
     mapView_.settings.zoomGestures = YES;
     mapView_.delegate = self;
-        
+    
+    [self.view addSubview:mapView_];
+    
+    [mapView_ makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        mapView_.myLocationEnabled = YES;
+    });
+}
+- (void)setupKVO {
+    
     [self.KVOController observe:mapView_ keyPath:@"myLocation" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
         
         if (!self.viewModel.firstLocationUpdate) {
-        
+            
             CLLocation *location = [change objectForKey:NSKeyValueChangeNewKey];
             
             [self.viewModel handleLocationUpdateForLocation:location.coordinate];
             
             mapView_.camera = [GMSCameraPosition cameraWithTarget:location.coordinate
-                                                         zoom:14];            
+                                                             zoom:14];
         }
     }];
-    
-    [self.view addSubview:mapView_];
-    [mapView_ makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-    
-    // Ask for My Location data after the map has already been added to the UI.
-    dispatch_async(dispatch_get_main_queue(), ^{
-        mapView_.myLocationEnabled = YES;
-    });
-    
     
     [self.KVOController observe:self.viewModel keyPath:@"places" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
         for (GooglePlaceVO *vo in change[NSKeyValueChangeNewKey]) {
@@ -106,17 +96,76 @@
     }];
     
     [self.KVOController observe:self.viewModel keyPath:@"optimalPathModel" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }];
+}
+
+-(void)setupTableView{
+    tableView_ = [[UITableView alloc]init];
+    [self.view addSubview:tableView_];
+ 
+    tableView_.delegate = self;
+    tableView_.dataSource = self;
     
+    [tableView_ registerClass:[UITableViewCell class] forCellReuseIdentifier:@"pathcell"];
+    
+    [tableView_ makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.and.width.equalTo(self.view);
+        make.height.equalTo(self.view).multipliedBy(0.3);
     }];
     
-    
-    markerInfoView_ = [[MarkerInfoView alloc]initWithFrame:CGRectMake(0, 0, 100, 50)];
+}
 
+#pragma mark -
+
+-(void)awakeFromNib{
+    
+    [super awakeFromNib];
+    self.viewModel = [[MapViewViewModel alloc]init];
+    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:self.viewModel.rightNavButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(showPath:)];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    
+    [self setupMapView];
+    
+    [self setupTableView];
+    
+    [self setupKVO];
+    
 }
 
 - (void)dealloc {
 }
+#pragma mark - UITableViewDelegate
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UILabel *lbl = [UILabel new];
+    lbl.text = @"Optimal Path";
+    lbl.textAlignment = NSTextAlignmentCenter;
+    return lbl;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 20.0f;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.viewModel.optimalPathModel.optimalPath.count;
+}
 
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    UITableViewCell *cell = [tableView_ dequeueReusableCellWithIdentifier:@"pathcell"];
+    CLLocationCoordinate2D point = [self.viewModel.optimalPathModel.optimalPath coordinateAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%lf, %lf", point.latitude, point.longitude];
+    
+    return cell;
+
+}
+#pragma mark -
 #pragma mark - actions
 -(void)showPath:(id)sender{
     
@@ -124,7 +173,8 @@
     polyLine.path = self.viewModel.optimalPathModel.optimalPath;
     polyLine.strokeWidth = 2;
     polyLine.map = mapView_;
-    polyLine.spans = [self gradientSpansForArrayCount:self.viewModel.optimalPathModel.optimalPath.count];
+    //polyLine.spans = [self gradientSpansForArrayCount:self.viewModel.optimalPathModel.optimalPath.count];
+    [tableView_ reloadData];
 
 }
 #pragma mark -
