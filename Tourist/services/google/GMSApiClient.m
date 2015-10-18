@@ -14,8 +14,6 @@
 @implementation GMSApiClient{
     NSURL *baseURL_;
     AFHTTPRequestOperationManager *afHTTPManager_;
-    BFTaskCompletionSource *allTasks_;
-    NSMutableArray *places_;
 }
 #pragma mark - private
 -(BFTask*)getTaskForPath:(NSString*)path withParams:(NSDictionary*)params{
@@ -39,8 +37,6 @@
         afHTTPManager_.requestSerializer = [AFJSONRequestSerializer serializer];
         afHTTPManager_.responseSerializer = [AFJSONResponseSerializer serializer];
 
-        allTasks_ = [BFTaskCompletionSource taskCompletionSource];
-        places_ = [NSMutableArray array];
     }
     return self;
 }
@@ -50,7 +46,7 @@
     //https://maps.googleapis.com/maps/api/place/radarsearch/json?location=51.503186,-0.126446&radius=5000&types=museum&key=AIzaSyD_1wjarbzsxkpAYz_RoKX0CIzS0Ba7USs
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{@"key": kApiKey,
-                                                                                      @"radius" : @"10000",
+                                                                                      @"radius" : @"200",
                                                                                       @"location": [NSString stringWithFormat:@"%lf,%lf", coordinate.latitude, coordinate.longitude],
                                                                                       @"types": [types componentsJoinedByString:@"|"]
                                                                                       }];

@@ -68,10 +68,7 @@
     }];
     
     [self.KVOController observe:self.viewModel keyPath:@"travelingPath" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
-        GMSPolyline *polyLine = [[GMSPolyline alloc] init];
-        polyLine.path = change[NSKeyValueChangeNewKey];
-        polyLine.strokeWidth = 2;
-        polyLine.map = mapView_;
+    
     }];
     
     
@@ -79,5 +76,15 @@
 
 - (void)dealloc {
 }
+
+#pragma mark - actions
+-(void)showPath:(id)sender{
+    GMSPolyline *polyLine = [[GMSPolyline alloc] init];
+    polyLine.path = self.viewModel.travelingPath;
+    polyLine.strokeWidth = 2;
+    polyLine.map = mapView_;
+
+}
+#pragma mark -
 
 @end

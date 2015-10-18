@@ -51,7 +51,7 @@
     for (GooglePlaceVO *vo in _places) {
         [path addLatitude:vo.geometry.location.lat longitude:vo.geometry.location.lng];
     }
-    //[path addLatitude:_currentLocation.latitude longitude:_currentLocation.longitude];
+    [path addLatitude:_currentLocation.latitude longitude:_currentLocation.longitude];
     self.travelingPath = path;
 
 }
