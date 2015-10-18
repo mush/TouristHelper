@@ -10,7 +10,6 @@
 #import <AFNetworking.h>
 
 @interface BaseService : NSObject
-
 -(BFTask*)getRequestTaskForPath:(NSString*)path withParams:(NSDictionary*)params;
 -(NSURL*)baseURL;
 -(AFHTTPRequestSerializer*)requestSerializer;

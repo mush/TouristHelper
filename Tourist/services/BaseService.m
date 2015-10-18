@@ -38,7 +38,7 @@
 }
 
 -(NSURL*)baseURL{
-    return nil;
+    @throw ([NSException exceptionWithName:@"BaseURLException" reason:@"Base URL is missing. Implement baseURL of BaseService class." userInfo:nil]);
 }
 
 -(AFHTTPRequestSerializer*)requestSerializer{
