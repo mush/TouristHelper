@@ -16,5 +16,5 @@
 @property(readonly, nonatomic) GMSPath *optimalPath;
 
 -(instancetype)initWithGMSPath:(GMSPath*)path forOrigin:(CLLocationCoordinate2D)origin;
-
+-(instancetype)initWithPlaces:(NSArray*)places forOrigin:(CLLocationCoordinate2D)origin;
 @end

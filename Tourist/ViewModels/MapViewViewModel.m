@@ -44,12 +44,7 @@
     }
     _places = places;
     
-    GMSMutablePath *path = [GMSMutablePath path];    
-    
-    for (GooglePlaceVO *vo in _places) {
-        [path addLatitude:vo.geometry.location.lat longitude:vo.geometry.location.lng];
-    }
-    self.optimalPathModel = [[OptimalPathModel alloc] initWithGMSPath:path forOrigin:_currentLocation];
+    self.optimalPathModel = [[OptimalPathModel alloc] initWithPlaces:_places forOrigin:_currentLocation];
 
 }
 

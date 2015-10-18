@@ -8,8 +8,10 @@
 
 #import "OptimalPathModel.h"
 #import "MathArc.h"
+#import "GooglePlaceVO.h"
 
 @implementation OptimalPathModel{
+    NSArray *places_;
 }
 
 #pragma mark - private
@@ -62,5 +64,14 @@
     }
     
     return self;
+}
+-(instancetype)initWithPlaces:(NSArray*)places forOrigin:(CLLocationCoordinate2D)origin{
+    places_ = places;
+    GMSMutablePath *path = [GMSMutablePath path];
+    
+    for (GooglePlaceVO *vo in places_) {
+        [path addLatitude:vo.geometry.location.lat longitude:vo.geometry.location.lng];
+    }
+    return [self initWithGMSPath:path forOrigin:origin];
 }
 @end

@@ -8,10 +8,7 @@
 
 #import "GooglePlaceVO.h"
 #import "MarkerInfoView.h"
-
-@interface AsynGMSMarker : GMSMarker
-
-@end
+#import "MathArc.h"
 
 @interface MapViewController ()<GMSMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -21,6 +18,7 @@
     GMSMapView *mapView_;
     MarkerInfoView *markerInfoView_;
     UITableView *tableView_;
+    GMSPolyline *polyLine_;
 }
 
 #pragma mark - private
@@ -153,26 +151,37 @@
     return 20.0f;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.viewModel.optimalPathModel.optimalPath.count;
+    return self.viewModel.optimalPathModel.optimalPath.count - 1;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     UITableViewCell *cell = [tableView_ dequeueReusableCellWithIdentifier:@"pathcell"];
-    CLLocationCoordinate2D point = [self.viewModel.optimalPathModel.optimalPath coordinateAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%lf, %lf", point.latitude, point.longitude];
+    CLLocationCoordinate2D point1 = [self.viewModel.optimalPathModel.optimalPath coordinateAtIndex:indexPath.row];
+    CLLocationCoordinate2D point2 = [self.viewModel.optimalPathModel.optimalPath coordinateAtIndex:indexPath.row + 1];
+    cell.textLabel.text = [NSString stringWithFormat:@"%lf", [MathArc distanceBetweenLoc1:point1 andLoc2:point2]*1000];
     
     return cell;
 
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    polyLine_.map = nil;
+    polyLine_ = [[GMSPolyline alloc] init];
+    polyLine_.strokeWidth = 2;
+    polyLine_.map = mapView_;
+    GMSMutablePath *path = [GMSMutablePath path];
+    [path addCoordinate:[self.viewModel.optimalPathModel.optimalPath coordinateAtIndex:indexPath.row]];
+    [path addCoordinate:[self.viewModel.optimalPathModel.optimalPath coordinateAtIndex:indexPath.row+1]];
+    polyLine_.path = [[GMSPath alloc]initWithPath:path];
+}
 #pragma mark -
 #pragma mark - actions
 -(void)showPath:(id)sender{
-    
-    GMSPolyline *polyLine = [[GMSPolyline alloc] init];
-    polyLine.path = self.viewModel.optimalPathModel.optimalPath;
-    polyLine.strokeWidth = 2;
-    polyLine.map = mapView_;
+    polyLine_.map = nil;
+    polyLine_ = [[GMSPolyline alloc] init];
+    polyLine_.path = self.viewModel.optimalPathModel.optimalPath;
+    polyLine_.strokeWidth = 2;
+    polyLine_.map = mapView_;
     //polyLine.spans = [self gradientSpansForArrayCount:self.viewModel.optimalPathModel.optimalPath.count];
     [tableView_ reloadData];
 
