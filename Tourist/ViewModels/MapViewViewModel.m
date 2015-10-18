@@ -32,7 +32,7 @@
         
         //_travelingPath = [GMSMutablePath path];
         
-        _rightNavButtonTitle = @"Connect the Dot";
+        _rightNavButtonTitle = @"Connect the Dots";
     }
     
     return self;
