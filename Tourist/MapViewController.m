@@ -25,6 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:self.viewModel.rightNavButtonTitle style:UIBarButtonSystemItemAction target:self action:@selector(showPath:)];
+    
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.868
                                                             longitude:151.2086
                                                                  zoom:12];
@@ -61,7 +64,16 @@
             marker.position = CLLocationCoordinate2DMake(vo.geometry.location.lat, vo.geometry.location.lng);
             marker.map = mapView_;
         }
+        
     }];
+    
+    [self.KVOController observe:self.viewModel keyPath:@"travelingPath" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+        GMSPolyline *polyLine = [[GMSPolyline alloc] init];
+        polyLine.path = change[NSKeyValueChangeNewKey];
+        polyLine.strokeWidth = 2;
+        polyLine.map = mapView_;
+    }];
+    
     
 }
 

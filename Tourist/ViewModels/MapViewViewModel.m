@@ -8,9 +8,11 @@
 
 #import "MapViewViewModel.h"
 #import "GMSApiClient.h"
+#import "GooglePlaceVO.h"
 
 @interface MapViewViewModel ()
 +(NSArray*)allowedTypes;
+@property(strong) GMSMutablePath *travelingPath;
 @end
 
 @implementation MapViewViewModel{
@@ -27,10 +29,31 @@
         
         _currentLocation = CLLocationCoordinate2DMake(-37.8380298, 144.9911135);
         
+        _travelingPath = [GMSMutablePath path];
         
+        _rightNavButtonTitle = @"Connect the Dot";
     }
     
     return self;
+}
+
+-(void)setPlaces:(NSArray *)places{
+
+    if (_places == places) {
+        return;
+    }
+    _places = places;
+    
+    GMSMutablePath *path = [GMSMutablePath path];
+    
+    [path addLatitude:_currentLocation.latitude longitude:_currentLocation.longitude];
+    
+    for (GooglePlaceVO *vo in _places) {
+        [path addLatitude:vo.geometry.location.lat longitude:vo.geometry.location.lng];
+    }
+    //[path addLatitude:_currentLocation.latitude longitude:_currentLocation.longitude];
+    self.travelingPath = path;
+
 }
 
 -(void)handleLocationUpdateForLocation:(CLLocationCoordinate2D)location{
@@ -47,7 +70,7 @@
             __strong MapViewViewModel *strongSelf = weakSelf;
             
             if ([task.result count] > 100) {
-                strongSelf.places = [task.result subarrayWithRange:NSMakeRange(0, 100)];
+                strongSelf.places = [task.result subarrayWithRange:NSMakeRange(0, 5)];
             }else{
                 strongSelf.places = task.result;
             }
