@@ -46,7 +46,7 @@
         visited[nextMinLocIndex] = true;
         locNum--;
     }
-    [optimalPath removeLastCoordinate];
+    //[optimalPath removeLastCoordinate];
     delete [] visited;
     
     [optimalPath addCoordinate:origin];
