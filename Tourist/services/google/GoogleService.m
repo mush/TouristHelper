@@ -12,33 +12,13 @@
 #import "GooglePlaceVO.h"
 
 @implementation GoogleService{
-    NSURL *baseURL_;
-    AFHTTPRequestOperationManager *afHTTPManager_;
+
 }
 #pragma mark - private
--(BFTask*)getTaskForPath:(NSString*)path withParams:(NSDictionary*)params{
-    
-    BFTaskCompletionSource *bcs = [BFTaskCompletionSource taskCompletionSource];
-    
-    [afHTTPManager_ GET:path parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        [bcs setResult:responseObject];
-    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-        [bcs setError:error];
-    }];
-    
-    
-    return bcs.task;
-}
-#pragma mark -
--(instancetype)init{
-    if (self = [super init]) {
-        baseURL_ = [NSURL URLWithString:@"https://maps.googleapis.com"];
-        afHTTPManager_ = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL_];
-        afHTTPManager_.requestSerializer = [AFJSONRequestSerializer serializer];
-        afHTTPManager_.responseSerializer = [AFJSONResponseSerializer serializer];
 
-    }
-    return self;
+#pragma mark -
+-(NSURL *)baseURL{
+    return [NSURL URLWithString:@"https://maps.googleapis.com"];
 }
 
 -(BFTask *)taskForRadarSearchForCoordinate:(CLLocationCoordinate2D)coordinate types:(NSArray *)types{

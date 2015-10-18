@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "BaseService.h"
 
-@interface GoogleService : NSObject
+@interface GoogleService : BaseService
 -(BFTask*)taskForRadarSearchForCoordinate:(CLLocationCoordinate2D)coordinate types:(NSArray*)types;
 -(BFTask*)taskForPlaceForPlaceId:(NSString*)placeId;
 @end
