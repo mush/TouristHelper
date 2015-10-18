@@ -15,4 +15,8 @@
 #import "Bolts.h"
 #import <KVOController/FBKVOController.h>
 
+
+#define MAS_SHORTHAND
+#import <Masonry.h>
+
 #endif /* PrefixHeader_pch */

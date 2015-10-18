@@ -8,6 +8,7 @@ pod "AFNetworking"
 pod "JSONModel"
 pod "Bolts"
 pod "KVOController"
+pod "Masonry"
 
 target 'Tourist' do
 

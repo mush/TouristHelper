@@ -10,7 +10,18 @@
 #import <CoreLocation/CoreLocation.h>
 #import "BaseService.h"
 
+@protocol GoogleServiceProtocol <NSObject>
+
+@optional
+-(NSInteger)maxNumPlaces;
+-(NSInteger)maxRadiusInMeter;
+
+@end
+
 @interface GoogleService : BaseService
+
+@property(weak) id<GoogleServiceProtocol> delegate;
+
 -(BFTask*)taskForRadarSearchForCoordinate:(CLLocationCoordinate2D)coordinate types:(NSArray*)types;
 -(BFTask*)taskForPlaceForPlaceId:(NSString*)placeId;
 @end

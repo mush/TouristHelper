@@ -29,6 +29,7 @@ PODS:
   - GoogleMaps (1.10.4)
   - JSONModel (1.1.0)
   - KVOController (1.0.3)
+  - Masonry (0.6.3)
 
 DEPENDENCIES:
   - AFNetworking
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - GoogleMaps
   - JSONModel
   - KVOController
+  - Masonry
 
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
@@ -43,5 +45,6 @@ SPEC CHECKSUMS:
   GoogleMaps: 134bcf57e8d489efbc0c29d532ed421554fabdb2
   JSONModel: ec77e9865236a7a09d9cf7668df6b4b328d9ec1d
   KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
+  Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
 
 COCOAPODS: 0.39.0

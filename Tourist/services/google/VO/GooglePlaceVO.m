@@ -12,7 +12,8 @@
 +(JSONKeyMapper *)keyMapper{
     return [[JSONKeyMapper alloc] initWithDictionary:@{
                                                        @"id" : @"id_",
-                                                       @"place_id" : @"placeId"
+                                                       @"place_id" : @"placeId",
+                                                       @"formatted_address": @"formattedAddress"
                                                        }];
 }
 @end

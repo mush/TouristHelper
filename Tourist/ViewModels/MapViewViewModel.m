@@ -10,9 +10,9 @@
 #import "GoogleService.h"
 #import "GooglePlaceVO.h"
 
-@interface MapViewViewModel ()
+@interface MapViewViewModel ()<GoogleServiceProtocol>
 +(NSArray*)allowedTypes;
-@property(strong) GMSMutablePath *travelingPath;
+@property(strong) OptimalPathModel *optimalPathModel;
 @end
 
 @implementation MapViewViewModel{
@@ -26,17 +26,17 @@
     if (self = [super init]) {
         _firstLocationUpdate = NO;
         googleService_ = [[GoogleService alloc] init];
+        googleService_.delegate = self;
         
         _currentLocation = CLLocationCoordinate2DMake(-37.8380298, 144.9911135);
         
-        _travelingPath = [GMSMutablePath path];
+        //_travelingPath = [GMSMutablePath path];
         
         _rightNavButtonTitle = @"Connect the Dot";
     }
     
     return self;
 }
-
 -(void)setPlaces:(NSArray *)places{
 
     if (_places == places) {
@@ -44,15 +44,12 @@
     }
     _places = places;
     
-    GMSMutablePath *path = [GMSMutablePath path];
-    
-    [path addLatitude:_currentLocation.latitude longitude:_currentLocation.longitude];
+    GMSMutablePath *path = [GMSMutablePath path];    
     
     for (GooglePlaceVO *vo in _places) {
         [path addLatitude:vo.geometry.location.lat longitude:vo.geometry.location.lng];
     }
-    [path addLatitude:_currentLocation.latitude longitude:_currentLocation.longitude];
-    self.travelingPath = path;
+    self.optimalPathModel = [[OptimalPathModel alloc] initWithGMSPath:path forOrigin:_currentLocation];
 
 }
 
@@ -69,17 +66,30 @@
         [[googleService_ taskForRadarSearchForCoordinate:_currentLocation types:[MapViewViewModel allowedTypes]] continueWithBlock:^id(BFTask *task) {
             __strong MapViewViewModel *strongSelf = weakSelf;
             
-            if ([task.result count] > 100) {
-                strongSelf.places = [task.result subarrayWithRange:NSMakeRange(0, 5)];
-            }else{
-                strongSelf.places = task.result;
-            }
-            
-            
+            strongSelf.places = task.result;
+
             return nil;
         }];
         
     }
 }
+
+-(BFTask*)taskForInfoWindowLoadForPlaceId:(NSString*)placeId{
+
+    return [[googleService_ taskForPlaceForPlaceId:placeId] continueWithSuccessBlock:^id(BFTask *task) {
+        GooglePlaceVO *vo = task.result;
+        return [NSDictionary dictionaryWithObjectsAndKeys:vo.name, @"title", [vo.rating stringValue], @"rating", nil];
+    }];
+
+}
+
+#pragma mark - GoogleServiceProtocol
+-(NSInteger)maxNumPlaces{
+    return 10;
+}
+-(NSInteger)maxRadiusInMeter{
+    return 200;
+}
+#pragma mark -
 
 @end

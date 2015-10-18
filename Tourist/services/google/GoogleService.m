@@ -15,7 +15,20 @@
 
 }
 #pragma mark - private
+-(NSInteger)getMaxNumberOfPlaces{
 
+    if ([self.delegate respondsToSelector:@selector(maxNumPlaces)]) {
+        return [self.delegate maxNumPlaces];
+    }
+    return 200;
+
+}
+-(NSString*)getMaxRadiusOfPlacesInMeter{
+    if ([self.delegate respondsToSelector:@selector(maxRadiusInMeter)]) {
+        return [NSString stringWithFormat:@"%ld", [self.delegate maxRadiusInMeter]];
+    }
+    return @"2000";
+}
 #pragma mark -
 -(NSURL *)baseURL{
     return [NSURL URLWithString:@"https://maps.googleapis.com"];
@@ -26,25 +39,40 @@
     //https://maps.googleapis.com/maps/api/place/radarsearch/json?location=51.503186,-0.126446&radius=5000&types=museum&key=AIzaSyD_1wjarbzsxkpAYz_RoKX0CIzS0Ba7USs
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{@"key": kApiKey,
-                                                                                      @"radius" : @"200",
+                                                                                      @"radius" : [self getMaxRadiusOfPlacesInMeter],
                                                                                       @"location": [NSString stringWithFormat:@"%lf,%lf", coordinate.latitude, coordinate.longitude],
                                                                                       @"types": [types componentsJoinedByString:@"|"]
                                                                                       }];
     
     
     return [[self getRequestTaskForPath:@"/maps/api/place/radarsearch/json" withParams:parameters] continueWithSuccessBlock:^id(BFTask *task) {
-        NSMutableArray *places = [NSMutableArray array];
-        NSError *error = nil;
-        for (id place in task.result[@"results"]) {
-            GooglePlaceVO *placeVO = [[GooglePlaceVO alloc] initWithDictionary:place error:&error];
-            if (!error) {
-                [places addObject:placeVO];
-            }else{
-                error = nil;
-                NSLog(@"%@", [error description]);
-            }
+//        NSMutableArray *places = [NSMutableArray array];
+//        NSError *error = nil;
+//        for (id place in task.result[@"results"]) {
+//            GooglePlaceVO *placeVO = [[GooglePlaceVO alloc] initWithDictionary:place error:&error];
+//            if (!error) {
+//                [places addObject:placeVO];
+//            }else{
+//                error = nil;
+//                NSLog(@"%@", [error description]);
+//            }
+//        }
+//        return places;
+        NSMutableArray *placeDetailsTasks = [NSMutableArray array];
+
+        NSArray *slicedResult;
+        if ([task.result[@"results"] count] < [self getMaxNumberOfPlaces]) {
+            slicedResult = task.result[@"results"];
+        }else{
+            slicedResult = [task.result[@"results"] subarrayWithRange:NSMakeRange(0, [self getMaxNumberOfPlaces])];
         }
-        return places;
+        
+        for (id place in slicedResult) {
+            [placeDetailsTasks addObject:[self taskForPlaceForPlaceId:place[@"place_id"]]];
+        }
+        
+        return [BFTask taskForCompletionOfAllTasksWithResults:placeDetailsTasks];
+        
     }];
     
 }
