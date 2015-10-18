@@ -10,8 +10,6 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface GMSApiClient : NSObject
--(BFTask*)taskForNearbySearchForCoordinate:(CLLocationCoordinate2D)coordinate types:(NSArray*)types pageToken:(NSString*)token;
--(BFTask*)taskForNearbySearchForCoordinate:(CLLocationCoordinate2D)coordinate types:(NSArray*)types;
 -(BFTask*)taskForRadarSearchForCoordinate:(CLLocationCoordinate2D)coordinate types:(NSArray*)types;
 -(BFTask*)taskForPlaceForPlaceId:(NSString*)placeId;
 @end
