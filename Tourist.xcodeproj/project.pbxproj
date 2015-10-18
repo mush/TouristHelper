@@ -16,7 +16,7 @@
 		221754B11BD294AC007669D0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754AF1BD294AC007669D0 /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
 		221754B41BD294BC007669D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221754B21BD294BC007669D0 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		221754CB1BD295F5007669D0 /* MapViewViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754C51BD295F5007669D0 /* MapViewViewModel.m */; settings = {ASSET_TAGS = (); }; };
-		221754F91BD368F6007669D0 /* GMSApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754EE1BD368F6007669D0 /* GMSApiClient.m */; settings = {ASSET_TAGS = (); }; };
+		221754F91BD368F6007669D0 /* GoogleService.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754EE1BD368F6007669D0 /* GoogleService.m */; settings = {ASSET_TAGS = (); }; };
 		221754FA1BD368F6007669D0 /* GoogleGeometryVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754F21BD368F6007669D0 /* GoogleGeometryVO.m */; settings = {ASSET_TAGS = (); }; };
 		221754FB1BD368F6007669D0 /* GoogleLocationVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754F41BD368F6007669D0 /* GoogleLocationVO.m */; settings = {ASSET_TAGS = (); }; };
 		221754FC1BD368F6007669D0 /* GooglePhotoVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754F61BD368F6007669D0 /* GooglePhotoVO.m */; settings = {ASSET_TAGS = (); }; };
@@ -52,8 +52,8 @@
 		221754C41BD295F5007669D0 /* MapViewViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewViewModel.h; sourceTree = "<group>"; };
 		221754C51BD295F5007669D0 /* MapViewViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewViewModel.m; sourceTree = "<group>"; };
 		221754CC1BD29612007669D0 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		221754ED1BD368F6007669D0 /* GMSApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSApiClient.h; sourceTree = "<group>"; };
-		221754EE1BD368F6007669D0 /* GMSApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSApiClient.m; sourceTree = "<group>"; };
+		221754ED1BD368F6007669D0 /* GoogleService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleService.h; sourceTree = "<group>"; };
+		221754EE1BD368F6007669D0 /* GoogleService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleService.m; sourceTree = "<group>"; };
 		221754EF1BD368F6007669D0 /* GMSApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSApiKey.h; sourceTree = "<group>"; };
 		221754F11BD368F6007669D0 /* GoogleGeometryVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleGeometryVO.h; sourceTree = "<group>"; };
 		221754F21BD368F6007669D0 /* GoogleGeometryVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleGeometryVO.m; sourceTree = "<group>"; };
@@ -174,8 +174,8 @@
 		221754EC1BD368F6007669D0 /* google */ = {
 			isa = PBXGroup;
 			children = (
-				221754ED1BD368F6007669D0 /* GMSApiClient.h */,
-				221754EE1BD368F6007669D0 /* GMSApiClient.m */,
+				221754ED1BD368F6007669D0 /* GoogleService.h */,
+				221754EE1BD368F6007669D0 /* GoogleService.m */,
 				221754EF1BD368F6007669D0 /* GMSApiKey.h */,
 				221754F01BD368F6007669D0 /* VO */,
 			);
@@ -374,7 +374,7 @@
 				221754831BD29405007669D0 /* main.m in Sources */,
 				221754FD1BD368F6007669D0 /* GooglePlaceVO.m in Sources */,
 				221754FC1BD368F6007669D0 /* GooglePhotoVO.m in Sources */,
-				221754F91BD368F6007669D0 /* GMSApiClient.m in Sources */,
+				221754F91BD368F6007669D0 /* GoogleService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

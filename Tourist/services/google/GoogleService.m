@@ -6,12 +6,12 @@
 //  Copyright © 2015 Ashiqur Rahman. All rights reserved.
 //
 
-#import "GMSApiClient.h"
+#import "GoogleService.h"
 #import <AFNetworking.h>
 #import "GMSApiKey.h"
 #import "GooglePlaceVO.h"
 
-@implementation GMSApiClient{
+@implementation GoogleService{
     NSURL *baseURL_;
     AFHTTPRequestOperationManager *afHTTPManager_;
 }

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface GMSApiClient : NSObject
+@interface GoogleService : NSObject
 -(BFTask*)taskForRadarSearchForCoordinate:(CLLocationCoordinate2D)coordinate types:(NSArray*)types;
 -(BFTask*)taskForPlaceForPlaceId:(NSString*)placeId;
 @end

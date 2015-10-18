@@ -7,7 +7,7 @@
 //
 
 #import "MapViewViewModel.h"
-#import "GMSApiClient.h"
+#import "GoogleService.h"
 #import "GooglePlaceVO.h"
 
 @interface MapViewViewModel ()
@@ -16,7 +16,7 @@
 @end
 
 @implementation MapViewViewModel{
-    GMSApiClient *apiClient_;
+    GoogleService *apiClient_;
 }
 +(NSArray*)allowedTypes{
     return @[@"food", @"bar", @"museum"];
@@ -25,7 +25,7 @@
 
     if (self = [super init]) {
         _firstLocationUpdate = NO;
-        apiClient_ = [[GMSApiClient alloc] init];
+        apiClient_ = [[GoogleService alloc] init];
         
         _currentLocation = CLLocationCoordinate2DMake(-37.8380298, 144.9911135);
         
