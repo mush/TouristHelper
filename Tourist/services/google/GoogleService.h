@@ -13,8 +13,8 @@
 @protocol GoogleServiceProtocol <NSObject>
 
 @optional
--(NSInteger)maxNumPlaces;
--(NSInteger)maxRadiusInMeter;
+-(NSInteger)maxNumPlacesDuringSearch;
+-(NSInteger)maxRadiusInMeterDuringSearch;
 
 @end
 

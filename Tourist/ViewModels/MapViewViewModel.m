@@ -61,12 +61,9 @@
         // location.
         _firstLocationUpdate = YES;
         
-        __weak MapViewViewModel *weakSelf = self;
-        
         [[googleService_ taskForRadarSearchForCoordinate:_currentLocation types:[MapViewViewModel allowedTypes]] continueWithBlock:^id(BFTask *task) {
-            __strong MapViewViewModel *strongSelf = weakSelf;
             
-            strongSelf.places = task.result;
+            self.places = task.result;
 
             return nil;
         }];
@@ -84,10 +81,10 @@
 }
 
 #pragma mark - GoogleServiceProtocol
--(NSInteger)maxNumPlaces{
+-(NSInteger)maxNumPlacesDuringSearch{
     return 10;
 }
--(NSInteger)maxRadiusInMeter{
+-(NSInteger)maxRadiusInMeterDuringSearch{
     return 200;
 }
 #pragma mark -

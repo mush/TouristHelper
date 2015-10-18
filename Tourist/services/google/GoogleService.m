@@ -17,15 +17,15 @@
 #pragma mark - private
 -(NSInteger)getMaxNumberOfPlaces{
 
-    if ([self.delegate respondsToSelector:@selector(maxNumPlaces)]) {
-        return [self.delegate maxNumPlaces];
+    if ([self.delegate respondsToSelector:@selector(maxNumPlacesDuringSearch)]) {
+        return [self.delegate maxNumPlacesDuringSearch];
     }
     return 200;
 
 }
 -(NSString*)getMaxRadiusOfPlacesInMeter{
-    if ([self.delegate respondsToSelector:@selector(maxRadiusInMeter)]) {
-        return [NSString stringWithFormat:@"%ld", [self.delegate maxRadiusInMeter]];
+    if ([self.delegate respondsToSelector:@selector(maxRadiusInMeterDuringSearch)]) {
+        return [NSString stringWithFormat:@"%ld", [self.delegate maxRadiusInMeterDuringSearch]];
     }
     return @"2000";
 }
