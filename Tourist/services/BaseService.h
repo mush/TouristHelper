@@ -11,7 +11,7 @@
 
 @interface BaseService : NSObject
 
--(BFTask*)getTaskForPath:(NSString*)path withParams:(NSDictionary*)params;
+-(BFTask*)getRequestTaskForPath:(NSString*)path withParams:(NSDictionary*)params;
 -(NSURL*)baseURL;
 -(AFHTTPRequestSerializer*)requestSerializer;
 -(AFHTTPResponseSerializer*)responseSerializer;

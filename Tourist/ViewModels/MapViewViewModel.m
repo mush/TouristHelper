@@ -16,7 +16,7 @@
 @end
 
 @implementation MapViewViewModel{
-    GoogleService *apiClient_;
+    GoogleService *googleService_;
 }
 +(NSArray*)allowedTypes{
     return @[@"food", @"bar", @"museum"];
@@ -25,7 +25,7 @@
 
     if (self = [super init]) {
         _firstLocationUpdate = NO;
-        apiClient_ = [[GoogleService alloc] init];
+        googleService_ = [[GoogleService alloc] init];
         
         _currentLocation = CLLocationCoordinate2DMake(-37.8380298, 144.9911135);
         
@@ -66,7 +66,7 @@
         
         __weak MapViewViewModel *weakSelf = self;
         
-        [[apiClient_ taskForRadarSearchForCoordinate:_currentLocation types:[MapViewViewModel allowedTypes]] continueWithBlock:^id(BFTask *task) {
+        [[googleService_ taskForRadarSearchForCoordinate:_currentLocation types:[MapViewViewModel allowedTypes]] continueWithBlock:^id(BFTask *task) {
             __strong MapViewViewModel *strongSelf = weakSelf;
             
             if ([task.result count] > 100) {

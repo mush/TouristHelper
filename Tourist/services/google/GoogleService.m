@@ -32,7 +32,7 @@
                                                                                       }];
     
     
-    return [[self getTaskForPath:@"/maps/api/place/radarsearch/json" withParams:parameters] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[self getRequestTaskForPath:@"/maps/api/place/radarsearch/json" withParams:parameters] continueWithSuccessBlock:^id(BFTask *task) {
         NSMutableArray *places = [NSMutableArray array];
         NSError *error = nil;
         for (id place in task.result[@"results"]) {
@@ -55,7 +55,7 @@
                                                                                       }];
     
     
-    return [[self getTaskForPath:@"maps/api/place/details/json" withParams:parameters] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[self getRequestTaskForPath:@"maps/api/place/details/json" withParams:parameters] continueWithSuccessBlock:^id(BFTask *task) {
         NSError *error = nil;
         GooglePlaceVO *placeVO = [[GooglePlaceVO alloc] initWithDictionary:task.result[@"result"] error:&error];
         return placeVO;

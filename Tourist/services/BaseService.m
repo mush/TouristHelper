@@ -23,7 +23,7 @@
     return self;
 }
 
--(BFTask*)getTaskForPath:(NSString*)path withParams:(NSDictionary*)params{
+-(BFTask*)getRequestTaskForPath:(NSString*)path withParams:(NSDictionary*)params{
     
     BFTaskCompletionSource *bcs = [BFTaskCompletionSource taskCompletionSource];
     
