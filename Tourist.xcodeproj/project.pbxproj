@@ -13,7 +13,6 @@
 		221754911BD29405007669D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2217548F1BD29405007669D0 /* LaunchScreen.storyboard */; };
 		2217549C1BD29405007669D0 /* TouristTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2217549B1BD29405007669D0 /* TouristTests.m */; };
 		221754B01BD294AC007669D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754AD1BD294AC007669D0 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
-		221754B11BD294AC007669D0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754AF1BD294AC007669D0 /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
 		221754B41BD294BC007669D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221754B21BD294BC007669D0 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		221754CB1BD295F5007669D0 /* MapViewViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754C51BD295F5007669D0 /* MapViewViewModel.m */; settings = {ASSET_TAGS = (); }; };
 		221754F91BD368F6007669D0 /* GoogleService.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754EE1BD368F6007669D0 /* GoogleService.m */; settings = {ASSET_TAGS = (); }; };
@@ -22,6 +21,7 @@
 		221754FC1BD368F6007669D0 /* GooglePhotoVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754F61BD368F6007669D0 /* GooglePhotoVO.m */; settings = {ASSET_TAGS = (); }; };
 		221754FD1BD368F6007669D0 /* GooglePlaceVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754F81BD368F6007669D0 /* GooglePlaceVO.m */; settings = {ASSET_TAGS = (); }; };
 		221755001BD3697C007669D0 /* BaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754FF1BD3697C007669D0 /* BaseService.m */; settings = {ASSET_TAGS = (); }; };
+		22E748841BD379FA00010EA0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E748831BD379FA00010EA0 /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +46,6 @@
 		2217549D1BD29405007669D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		221754AC1BD294AC007669D0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		221754AD1BD294AC007669D0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		221754AE1BD294AC007669D0 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		221754AF1BD294AC007669D0 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		221754B31BD294BC007669D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		221754C41BD295F5007669D0 /* MapViewViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewViewModel.h; sourceTree = "<group>"; };
 		221754C51BD295F5007669D0 /* MapViewViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewViewModel.m; sourceTree = "<group>"; };
@@ -65,6 +63,8 @@
 		221754F81BD368F6007669D0 /* GooglePlaceVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooglePlaceVO.m; sourceTree = "<group>"; };
 		221754FE1BD3697C007669D0 /* BaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseService.h; sourceTree = "<group>"; };
 		221754FF1BD3697C007669D0 /* BaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseService.m; sourceTree = "<group>"; };
+		22E748821BD379FA00010EA0 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		22E748831BD379FA00010EA0 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		7438D66119EEB8920CC3EF68 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7774FC5A11118AC7C2F6BD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,13 +114,12 @@
 				221754B51BD295F5007669D0 /* category */,
 				221754B61BD295F5007669D0 /* services */,
 				221754C31BD295F5007669D0 /* ViewModels */,
-				221754B21BD294BC007669D0 /* Main.storyboard */,
+				22E748811BD379FA00010EA0 /* ViewControllers */,
 				221754AC1BD294AC007669D0 /* AppDelegate.h */,
 				221754AD1BD294AC007669D0 /* AppDelegate.m */,
-				221754AE1BD294AC007669D0 /* MapViewController.h */,
-				221754AF1BD294AC007669D0 /* MapViewController.m */,
 				2217548D1BD29405007669D0 /* Assets.xcassets */,
 				2217548F1BD29405007669D0 /* LaunchScreen.storyboard */,
+				221754B21BD294BC007669D0 /* Main.storyboard */,
 				221754921BD29405007669D0 /* Info.plist */,
 				221754811BD29405007669D0 /* Supporting Files */,
 			);
@@ -195,6 +194,15 @@
 				221754F81BD368F6007669D0 /* GooglePlaceVO.m */,
 			);
 			path = VO;
+			sourceTree = "<group>";
+		};
+		22E748811BD379FA00010EA0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				22E748821BD379FA00010EA0 /* MapViewController.h */,
+				22E748831BD379FA00010EA0 /* MapViewController.m */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		B9619BD15D21A63FF6640EDC /* Pods */ = {
@@ -366,13 +374,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				221754FB1BD368F6007669D0 /* GoogleLocationVO.m in Sources */,
-				221754B11BD294AC007669D0 /* MapViewController.m in Sources */,
 				221754FA1BD368F6007669D0 /* GoogleGeometryVO.m in Sources */,
 				221754CB1BD295F5007669D0 /* MapViewViewModel.m in Sources */,
 				221755001BD3697C007669D0 /* BaseService.m in Sources */,
 				221754B01BD294AC007669D0 /* AppDelegate.m in Sources */,
 				221754831BD29405007669D0 /* main.m in Sources */,
 				221754FD1BD368F6007669D0 /* GooglePlaceVO.m in Sources */,
+				22E748841BD379FA00010EA0 /* MapViewController.m in Sources */,
 				221754FC1BD368F6007669D0 /* GooglePhotoVO.m in Sources */,
 				221754F91BD368F6007669D0 /* GoogleService.m in Sources */,
 			);
