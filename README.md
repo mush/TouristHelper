@@ -21,3 +21,5 @@ pod install
 * more unittest.
 * caching layer for Services.
 * allow user to filter POI types. now the list contains only 'food','bar' and 'museum'.
+* create more animation for UIs
+* make visually more aesthetic.
