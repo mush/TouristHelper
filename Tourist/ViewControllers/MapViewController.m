@@ -7,8 +7,8 @@
 #import <GoogleMaps/GoogleMaps.h>
 
 #import "GooglePlaceVO.h"
-#import "MarkerInfoView.h"
-#import "MathArc.h"
+
+static NSString * const kCellIdentifier = @"pathcellid";
 
 @interface MapViewController ()<GMSMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -16,7 +16,6 @@
 
 @implementation MapViewController {
     GMSMapView *mapView_;
-    MarkerInfoView *markerInfoView_;
     UITableView *tableView_;
     GMSPolyline *polyLine_;
 }
@@ -45,6 +44,9 @@
     return colorSpans;
 }
 - (void)setupMapView {
+    if (mapView_) {
+        return;
+    }
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.868
                                                             longitude:151.2086
                                                                  zoom:12];
@@ -93,19 +95,26 @@
         
     }];
     
-    [self.KVOController observe:self.viewModel keyPath:@"optimalPathModel" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+    [self.KVOController observe:self.viewModel keyPath:@"optimalPath" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
         self.navigationItem.rightBarButtonItem.enabled = YES;
+    }];
+    
+    [self.KVOController observe:self.viewModel keyPath:@"optimalPathData" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+        [tableView_ reloadData];
     }];
 }
 
 -(void)setupTableView{
+    if (tableView_) {
+        return;
+    }
     tableView_ = [[UITableView alloc]init];
     [self.view addSubview:tableView_];
  
     tableView_.delegate = self;
     tableView_.dataSource = self;
     
-    [tableView_ registerClass:[UITableViewCell class] forCellReuseIdentifier:@"pathcell"];
+    [tableView_ registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
     
     [tableView_ makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.and.width.equalTo(self.view);
@@ -132,7 +141,7 @@
     
     [self setupMapView];
     
-    [self setupTableView];
+    //[self setupTableView];
     
     [self setupKVO];
     
@@ -151,15 +160,13 @@
     return 20.0f;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.viewModel.optimalPathModel.optimalPath.count - 1;
+    return self.viewModel.optimalPathData.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    UITableViewCell *cell = [tableView_ dequeueReusableCellWithIdentifier:@"pathcell"];
-    CLLocationCoordinate2D point1 = [self.viewModel.optimalPathModel.optimalPath coordinateAtIndex:indexPath.row];
-    CLLocationCoordinate2D point2 = [self.viewModel.optimalPathModel.optimalPath coordinateAtIndex:indexPath.row + 1];
-    cell.textLabel.text = [NSString stringWithFormat:@"%lf", [MathArc distanceBetweenLoc1:point1 andLoc2:point2]*1000];
+    UITableViewCell *cell = [tableView_ dequeueReusableCellWithIdentifier:kCellIdentifier];
+    cell.textLabel.text = self.viewModel.optimalPathData[indexPath.row][@"title"];
     
     return cell;
 
@@ -170,16 +177,17 @@
     polyLine_.strokeWidth = 2;
     polyLine_.map = mapView_;
     GMSMutablePath *path = [GMSMutablePath path];
-    [path addCoordinate:[self.viewModel.optimalPathModel.optimalPath coordinateAtIndex:indexPath.row]];
-    [path addCoordinate:[self.viewModel.optimalPathModel.optimalPath coordinateAtIndex:indexPath.row+1]];
-    polyLine_.path = [[GMSPath alloc]initWithPath:path];
+    polyLine_.path = self.viewModel.optimalPathData[indexPath.row][@"path"];
 }
 #pragma mark -
 #pragma mark - actions
 -(void)showPath:(id)sender{
+    
+    [self setupTableView];
+    
     polyLine_.map = nil;
     polyLine_ = [[GMSPolyline alloc] init];
-    polyLine_.path = self.viewModel.optimalPathModel.optimalPath;
+    polyLine_.path = self.viewModel.optimalPath;
     polyLine_.strokeWidth = 2;
     polyLine_.map = mapView_;
     //polyLine.spans = [self gradientSpansForArrayCount:self.viewModel.optimalPathModel.optimalPath.count];

@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <CoreLocation/CoreLocation.h>
-
+/**
+ *  This model provides the optimal path for a given set of locations (given as paht).
+ */
 @interface OptimalPathModel : NSObject
 
 @property(readonly, nonatomic) double totalDistance;

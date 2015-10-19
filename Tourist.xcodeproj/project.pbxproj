@@ -11,7 +11,7 @@
 		221754831BD29405007669D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754821BD29405007669D0 /* main.m */; };
 		2217548E1BD29405007669D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2217548D1BD29405007669D0 /* Assets.xcassets */; };
 		221754911BD29405007669D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2217548F1BD29405007669D0 /* LaunchScreen.storyboard */; };
-		2217549C1BD29405007669D0 /* TouristTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2217549B1BD29405007669D0 /* TouristTests.m */; };
+		2217549C1BD29405007669D0 /* GoogleServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2217549B1BD29405007669D0 /* GoogleServiceTests.m */; };
 		221754B01BD294AC007669D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754AD1BD294AC007669D0 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		221754B41BD294BC007669D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221754B21BD294BC007669D0 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		221754CB1BD295F5007669D0 /* MapViewViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754C51BD295F5007669D0 /* MapViewViewModel.m */; settings = {ASSET_TAGS = (); }; };
@@ -24,9 +24,9 @@
 		22E748841BD379FA00010EA0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E748831BD379FA00010EA0 /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
 		22E748881BD39D3000010EA0 /* MathArc.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E748871BD39D3000010EA0 /* MathArc.m */; settings = {ASSET_TAGS = (); }; };
 		22E7488D1BD39DCD00010EA0 /* OptimalPathModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22E7488C1BD39DCD00010EA0 /* OptimalPathModel.mm */; settings = {ASSET_TAGS = (); }; };
-		22E748911BD3A59A00010EA0 /* MarkerInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E748901BD3A59A00010EA0 /* MarkerInfoView.m */; settings = {ASSET_TAGS = (); }; };
 		22E748941BD3AFDB00010EA0 /* aeroplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E748921BD3AFDB00010EA0 /* aeroplane.png */; settings = {ASSET_TAGS = (); }; };
 		22E748951BD3AFDB00010EA0 /* aeroplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E748931BD3AFDB00010EA0 /* aeroplane@2x.png */; settings = {ASSET_TAGS = (); }; };
+		22E748A01BD4E5D700010EA0 /* MapViewViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7489F1BD4E5D700010EA0 /* MapViewViewModelTest.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,7 @@
 		221754901BD29405007669D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		221754921BD29405007669D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		221754971BD29405007669D0 /* TouristTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouristTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2217549B1BD29405007669D0 /* TouristTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouristTests.m; sourceTree = "<group>"; };
+		2217549B1BD29405007669D0 /* GoogleServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoogleServiceTests.m; sourceTree = "<group>"; };
 		2217549D1BD29405007669D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		221754AC1BD294AC007669D0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		221754AD1BD294AC007669D0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -74,10 +74,10 @@
 		22E748871BD39D3000010EA0 /* MathArc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathArc.m; sourceTree = "<group>"; };
 		22E7488B1BD39DCD00010EA0 /* OptimalPathModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptimalPathModel.h; sourceTree = "<group>"; };
 		22E7488C1BD39DCD00010EA0 /* OptimalPathModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OptimalPathModel.mm; sourceTree = "<group>"; };
-		22E7488F1BD3A59A00010EA0 /* MarkerInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerInfoView.h; sourceTree = "<group>"; };
-		22E748901BD3A59A00010EA0 /* MarkerInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerInfoView.m; sourceTree = "<group>"; };
 		22E748921BD3AFDB00010EA0 /* aeroplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aeroplane.png; sourceTree = "<group>"; };
 		22E748931BD3AFDB00010EA0 /* aeroplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aeroplane@2x.png"; sourceTree = "<group>"; };
+		22E7489F1BD4E5D700010EA0 /* MapViewViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewViewModelTest.m; sourceTree = "<group>"; };
+		22E748A11BD4E65A00010EA0 /* PrefixHeaderTestCase.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeaderTestCase.pch; sourceTree = "<group>"; };
 		7438D66119EEB8920CC3EF68 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7774FC5A11118AC7C2F6BD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,8 +156,10 @@
 		2217549A1BD29405007669D0 /* TouristTests */ = {
 			isa = PBXGroup;
 			children = (
-				2217549B1BD29405007669D0 /* TouristTests.m */,
+				2217549B1BD29405007669D0 /* GoogleServiceTests.m */,
+				22E748A11BD4E65A00010EA0 /* PrefixHeaderTestCase.pch */,
 				2217549D1BD29405007669D0 /* Info.plist */,
+				22E7489F1BD4E5D700010EA0 /* MapViewViewModelTest.m */,
 			);
 			path = TouristTests;
 			sourceTree = "<group>";
@@ -244,8 +246,6 @@
 		22E7488E1BD3A56B00010EA0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				22E7488F1BD3A59A00010EA0 /* MarkerInfoView.h */,
-				22E748901BD3A59A00010EA0 /* MarkerInfoView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -430,7 +430,6 @@
 				221754831BD29405007669D0 /* main.m in Sources */,
 				221754FD1BD368F6007669D0 /* GooglePlaceVO.m in Sources */,
 				22E748841BD379FA00010EA0 /* MapViewController.m in Sources */,
-				22E748911BD3A59A00010EA0 /* MarkerInfoView.m in Sources */,
 				221754FC1BD368F6007669D0 /* GooglePhotoVO.m in Sources */,
 				221754F91BD368F6007669D0 /* GoogleService.m in Sources */,
 			);
@@ -440,7 +439,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2217549C1BD29405007669D0 /* TouristTests.m in Sources */,
+				22E748A01BD4E5D700010EA0 /* MapViewViewModelTest.m in Sources */,
+				2217549C1BD29405007669D0 /* GoogleServiceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,7 +587,7 @@
 			baseConfigurationReference = DB7774FC5A11118AC7C2F6BD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				GCC_PREFIX_HEADER = Tourist/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = TouristTests/PrefixHeaderTestCase.pch;
 				INFOPLIST_FILE = TouristTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mush.TouristTests;
@@ -601,7 +601,7 @@
 			baseConfigurationReference = 1524E1269570D3680B51D2C2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				GCC_PREFIX_HEADER = Tourist/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = TouristTests/PrefixHeaderTestCase.pch;
 				INFOPLIST_FILE = TouristTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mush.TouristTests;

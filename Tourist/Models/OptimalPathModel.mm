@@ -15,6 +15,15 @@
 }
 
 #pragma mark - private
+/**
+ *  Ideally the algorighm for finding minimum distance is TSP. But it is really not going to work
+ for n=100. Hence, a very simple greedy approach is implemented.
+ *
+ *  @param path   <#path description#>
+ *  @param origin <#origin description#>
+ *
+ *  @return @{@"optimal_path":<GMSPath>, @"total_distance":<NSNumber>}
+ */
 -(NSDictionary*)optimalTravellingPathForPath:(GMSPath*)path withOrigin:(CLLocationCoordinate2D)origin{
     
     NSInteger locNum = path.count;

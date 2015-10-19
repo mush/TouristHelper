@@ -7,27 +7,20 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "GMSApiClient.h"
+#import "GoogleService.h"
 #import "GooglePlaceVO.h"
 
-#define EXP_START(desc) XCTestExpectation *expt = [self expectationWithDescription:desc]
-#define EXP_FULFILL() [expt fulfill]
-#define EXP_END() [self waitForExpectationsWithTimeout:20.0 handler:^(NSError * _Nullable error) {\
-XCTAssertNil(error, "error");\
-}]
-
-
-@interface TouristTests : XCTestCase
+@interface GoogleServiceTests : XCTestCase
 
 @end
 
-@implementation TouristTests{
-    GMSApiClient *api;
+@implementation GoogleServiceTests{
+    GoogleService *api;
 }
 
 - (void)setUp {
     [super setUp];
-    api = [[GMSApiClient alloc] init];
+    api = [[GoogleService alloc] init];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 

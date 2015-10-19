@@ -9,10 +9,17 @@
 #import "MapViewViewModel.h"
 #import "GoogleService.h"
 #import "GooglePlaceVO.h"
+#import "MathArc.h"
 
 @interface MapViewViewModel ()<GoogleServiceProtocol>
 +(NSArray*)allowedTypes;
+@property(strong) NSArray *places;
+@property(assign) CLLocationCoordinate2D currentLocation;
+@property(assign) BOOL firstLocationUpdate;
 @property(strong) OptimalPathModel *optimalPathModel;
+@property(strong) NSString* rightNavButtonTitle;
+@property(strong) NSMutableArray *optimalPathData;
+@property(strong) GMSPath *optimalPath;
 @end
 
 @implementation MapViewViewModel{
@@ -25,6 +32,7 @@
 
     if (self = [super init]) {
         _firstLocationUpdate = NO;
+        
         googleService_ = [[GoogleService alloc] init];
         googleService_.delegate = self;
         
@@ -45,7 +53,25 @@
     _places = places;
     
     self.optimalPathModel = [[OptimalPathModel alloc] initWithPlaces:_places forOrigin:_currentLocation];
+    
+    NSMutableArray *data = [NSMutableArray array];
+    
+    for (int i = 0; i < self.optimalPathModel.optimalPath.count - 1; i++) {
+        CLLocationCoordinate2D point1 = [self.optimalPathModel.optimalPath coordinateAtIndex:i];
+        CLLocationCoordinate2D point2 = [self.optimalPathModel.optimalPath coordinateAtIndex:i + 1];
+        
+        GMSMutablePath *path = [GMSMutablePath path];
+        [path addCoordinate:point1];
+        [path addCoordinate:point2];
+        
+        [data addObject:@{@"title":[NSString stringWithFormat:@"%lf", [MathArc distanceBetweenLoc1:point1 andLoc2:point2]*1000],
+                          @"path": [[GMSPath alloc]initWithPath:path]
+                          }
+         ];
+    }
 
+    self.optimalPathData = data;
+    self.optimalPath = self.optimalPathModel.optimalPath;
 }
 
 -(void)handleLocationUpdateForLocation:(CLLocationCoordinate2D)location{
@@ -64,15 +90,6 @@
         }];
         
     }
-}
-
--(BFTask*)taskForInfoWindowLoadForPlaceId:(NSString*)placeId{
-
-    return [[googleService_ taskForPlaceForPlaceId:placeId] continueWithSuccessBlock:^id(BFTask *task) {
-        GooglePlaceVO *vo = task.result;
-        return [NSDictionary dictionaryWithObjectsAndKeys:vo.name, @"title", [vo.rating stringValue], @"rating", nil];
-    }];
-
 }
 
 #pragma mark - GoogleServiceProtocol
