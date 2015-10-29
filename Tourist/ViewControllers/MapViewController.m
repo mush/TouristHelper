@@ -8,6 +8,11 @@
 
 #import "GooglePlaceVO.h"
 
+static float const kCameraZoomLevel = 14;
+static CGFloat const kTableSectionHeight = 20.0f;
+static CGFloat const kLineStrokeWidth = 2;
+
+
 static NSString * const kCellIdentifier = @"pathcellid";
 
 @interface MapViewController ()<GMSMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -28,7 +33,7 @@ static NSString * const kCellIdentifier = @"pathcellid";
     }
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.868
                                                             longitude:151.2086
-                                                                 zoom:12];
+                                                                 zoom:kCameraZoomLevel];
     
     mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView_.settings.compassButton = YES;
@@ -58,7 +63,7 @@ static NSString * const kCellIdentifier = @"pathcellid";
             [self.viewModel handleLocationUpdateForLocation:location.coordinate];
             
             mapView_.camera = [GMSCameraPosition cameraWithTarget:location.coordinate
-                                                             zoom:14];
+                                                             zoom:kCameraZoomLevel];
         }
     }];
     
@@ -136,7 +141,7 @@ static NSString * const kCellIdentifier = @"pathcellid";
     return lbl;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 20.0f;
+    return kTableSectionHeight;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.viewModel.optimalPathData.count;
@@ -153,7 +158,7 @@ static NSString * const kCellIdentifier = @"pathcellid";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     polyLine_.map = nil;
     polyLine_ = [[GMSPolyline alloc] init];
-    polyLine_.strokeWidth = 2;
+    polyLine_.strokeWidth = kLineStrokeWidth;
     polyLine_.map = mapView_;
     polyLine_.path = self.viewModel.optimalPathData[indexPath.row][@"path"];
 }
@@ -166,7 +171,7 @@ static NSString * const kCellIdentifier = @"pathcellid";
     polyLine_.map = nil;
     polyLine_ = [[GMSPolyline alloc] init];
     polyLine_.path = self.viewModel.optimalPath;
-    polyLine_.strokeWidth = 2;
+    polyLine_.strokeWidth = kLineStrokeWidth;
     polyLine_.map = mapView_;
     [tableView_ reloadData];
 

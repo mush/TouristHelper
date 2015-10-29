@@ -20,6 +20,7 @@
 @property(strong, nonatomic) NSString* rightNavButtonTitle;
 @property(strong, nonatomic) NSMutableArray *optimalPathData;
 @property(strong, nonatomic) GMSPath *optimalPath;
+
 @end
 
 @implementation MapViewViewModel{
