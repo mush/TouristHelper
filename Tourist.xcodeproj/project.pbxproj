@@ -12,21 +12,19 @@
 		2217548E1BD29405007669D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2217548D1BD29405007669D0 /* Assets.xcassets */; };
 		221754911BD29405007669D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2217548F1BD29405007669D0 /* LaunchScreen.storyboard */; };
 		2217549C1BD29405007669D0 /* GoogleServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2217549B1BD29405007669D0 /* GoogleServiceTests.m */; };
-		221754B01BD294AC007669D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754AD1BD294AC007669D0 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
-		221754B41BD294BC007669D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221754B21BD294BC007669D0 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
-		221754CB1BD295F5007669D0 /* MapViewViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754C51BD295F5007669D0 /* MapViewViewModel.m */; settings = {ASSET_TAGS = (); }; };
-		221754F91BD368F6007669D0 /* GoogleService.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754EE1BD368F6007669D0 /* GoogleService.m */; settings = {ASSET_TAGS = (); }; };
-		221754FA1BD368F6007669D0 /* GoogleGeometryVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754F21BD368F6007669D0 /* GoogleGeometryVO.m */; settings = {ASSET_TAGS = (); }; };
-		221754FB1BD368F6007669D0 /* GoogleLocationVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754F41BD368F6007669D0 /* GoogleLocationVO.m */; settings = {ASSET_TAGS = (); }; };
-		221754FC1BD368F6007669D0 /* GooglePhotoVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754F61BD368F6007669D0 /* GooglePhotoVO.m */; settings = {ASSET_TAGS = (); }; };
-		221754FD1BD368F6007669D0 /* GooglePlaceVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754F81BD368F6007669D0 /* GooglePlaceVO.m */; settings = {ASSET_TAGS = (); }; };
-		221755001BD3697C007669D0 /* BaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754FF1BD3697C007669D0 /* BaseService.m */; settings = {ASSET_TAGS = (); }; };
-		22E748841BD379FA00010EA0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E748831BD379FA00010EA0 /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
-		22E748881BD39D3000010EA0 /* MathArc.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E748871BD39D3000010EA0 /* MathArc.m */; settings = {ASSET_TAGS = (); }; };
-		22E7488D1BD39DCD00010EA0 /* OptimalPathModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22E7488C1BD39DCD00010EA0 /* OptimalPathModel.mm */; settings = {ASSET_TAGS = (); }; };
-		22E748941BD3AFDB00010EA0 /* aeroplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E748921BD3AFDB00010EA0 /* aeroplane.png */; settings = {ASSET_TAGS = (); }; };
-		22E748951BD3AFDB00010EA0 /* aeroplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E748931BD3AFDB00010EA0 /* aeroplane@2x.png */; settings = {ASSET_TAGS = (); }; };
-		22E748A01BD4E5D700010EA0 /* MapViewViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7489F1BD4E5D700010EA0 /* MapViewViewModelTest.m */; settings = {ASSET_TAGS = (); }; };
+		221754B01BD294AC007669D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754AD1BD294AC007669D0 /* AppDelegate.m */; };
+		221754B41BD294BC007669D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221754B21BD294BC007669D0 /* Main.storyboard */; };
+		221754CB1BD295F5007669D0 /* MapViewViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754C51BD295F5007669D0 /* MapViewViewModel.m */; };
+		221754F91BD368F6007669D0 /* GoogleService.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754EE1BD368F6007669D0 /* GoogleService.m */; };
+		221754FA1BD368F6007669D0 /* GoogleGeometryVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754F21BD368F6007669D0 /* GoogleGeometryVO.m */; };
+		221754FB1BD368F6007669D0 /* GoogleLocationVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754F41BD368F6007669D0 /* GoogleLocationVO.m */; };
+		221754FC1BD368F6007669D0 /* GooglePhotoVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754F61BD368F6007669D0 /* GooglePhotoVO.m */; };
+		221754FD1BD368F6007669D0 /* GooglePlaceVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754F81BD368F6007669D0 /* GooglePlaceVO.m */; };
+		221755001BD3697C007669D0 /* BaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 221754FF1BD3697C007669D0 /* BaseService.m */; };
+		22E748841BD379FA00010EA0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E748831BD379FA00010EA0 /* MapViewController.m */; };
+		22E748881BD39D3000010EA0 /* MathArc.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E748871BD39D3000010EA0 /* MathArc.m */; };
+		22E7488D1BD39DCD00010EA0 /* OptimalPathModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22E7488C1BD39DCD00010EA0 /* OptimalPathModel.mm */; };
+		22E748A01BD4E5D700010EA0 /* MapViewViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E7489F1BD4E5D700010EA0 /* MapViewViewModelTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,8 +72,6 @@
 		22E748871BD39D3000010EA0 /* MathArc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathArc.m; sourceTree = "<group>"; };
 		22E7488B1BD39DCD00010EA0 /* OptimalPathModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptimalPathModel.h; sourceTree = "<group>"; };
 		22E7488C1BD39DCD00010EA0 /* OptimalPathModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OptimalPathModel.mm; sourceTree = "<group>"; };
-		22E748921BD3AFDB00010EA0 /* aeroplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aeroplane.png; sourceTree = "<group>"; };
-		22E748931BD3AFDB00010EA0 /* aeroplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aeroplane@2x.png"; sourceTree = "<group>"; };
 		22E7489F1BD4E5D700010EA0 /* MapViewViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewViewModelTest.m; sourceTree = "<group>"; };
 		22E748A11BD4E65A00010EA0 /* PrefixHeaderTestCase.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeaderTestCase.pch; sourceTree = "<group>"; };
 		7438D66119EEB8920CC3EF68 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,8 +120,6 @@
 		221754801BD29405007669D0 /* Tourist */ = {
 			isa = PBXGroup;
 			children = (
-				22E748921BD3AFDB00010EA0 /* aeroplane.png */,
-				22E748931BD3AFDB00010EA0 /* aeroplane@2x.png */,
 				22E7488A1BD39DBA00010EA0 /* Models */,
 				22E748851BD39CD900010EA0 /* helper */,
 				221754B51BD295F5007669D0 /* category */,
@@ -350,11 +344,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22E748951BD3AFDB00010EA0 /* aeroplane@2x.png in Resources */,
 				221754B41BD294BC007669D0 /* Main.storyboard in Resources */,
 				221754911BD29405007669D0 /* LaunchScreen.storyboard in Resources */,
 				2217548E1BD29405007669D0 /* Assets.xcassets in Resources */,
-				22E748941BD3AFDB00010EA0 /* aeroplane.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
