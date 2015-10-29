@@ -74,7 +74,7 @@
     
     return self;
 }
--(instancetype)initWithPlaces:(NSArray*)places forOrigin:(CLLocationCoordinate2D)origin{
+-(instancetype)initWithPlaces:(NSArray<GooglePlaceVO*>*)places forOrigin:(CLLocationCoordinate2D)origin{
     places_ = places;
     GMSMutablePath *path = [GMSMutablePath path];
     

@@ -96,10 +96,10 @@
 
 #pragma mark - GoogleServiceProtocol
 -(NSInteger)maxNumPlacesDuringSearch{
-    return 100;
+    return 20;
 }
 -(NSInteger)maxRadiusInMeterDuringSearch{
-    return 2000;
+    return 1000;
 }
 #pragma mark -
 
