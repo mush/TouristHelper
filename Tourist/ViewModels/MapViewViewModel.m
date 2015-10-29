@@ -13,13 +13,13 @@
 
 @interface MapViewViewModel ()<GoogleServiceProtocol>
 +(NSArray*)allowedTypes;
-@property(strong) NSArray *places;
-@property(assign) CLLocationCoordinate2D currentLocation;
-@property(assign) BOOL firstLocationUpdate;
-@property(strong) OptimalPathModel *optimalPathModel;
-@property(strong) NSString* rightNavButtonTitle;
-@property(strong) NSMutableArray *optimalPathData;
-@property(strong) GMSPath *optimalPath;
+@property(strong, nonatomic) NSArray *places;
+@property(assign, nonatomic) CLLocationCoordinate2D currentLocation;
+@property(assign, nonatomic) BOOL firstLocationUpdate;
+@property(strong, nonatomic) OptimalPathModel *optimalPathModel;
+@property(strong, nonatomic) NSString* rightNavButtonTitle;
+@property(strong, nonatomic) NSMutableArray *optimalPathData;
+@property(strong, nonatomic) GMSPath *optimalPath;
 @end
 
 @implementation MapViewViewModel{
@@ -37,8 +37,6 @@
         googleService_.delegate = self;
         
         _currentLocation = CLLocationCoordinate2DMake(-37.8380298, 144.9911135);
-        
-        //_travelingPath = [GMSMutablePath path];
         
         _rightNavButtonTitle = @"Connect the Dots";
     }

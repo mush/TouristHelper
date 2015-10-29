@@ -21,28 +21,7 @@ static NSString * const kCellIdentifier = @"pathcellid";
 }
 
 #pragma mark - private
-- (NSArray *)gradientSpansForArrayCount:(NSInteger)count {
-    NSMutableArray *colorSpans = [NSMutableArray array];
-    UIColor *prevColor;
-    for (NSUInteger i = 0; i < count; i++) {
 
-        
-        UIColor *toColor = [UIColor colorWithHue:(float)i/count
-                                      saturation:1.f
-                                      brightness:.9f
-                                           alpha:1.f];
-        
-        if (prevColor == nil) {
-            prevColor = toColor;
-        }
-        
-        GMSStrokeStyle *style = [GMSStrokeStyle gradientFromColor:prevColor toColor:toColor];
-        [colorSpans addObject:[GMSStyleSpan spanWithStyle:style]];
-        
-        prevColor = toColor;
-    }
-    return colorSpans;
-}
 - (void)setupMapView {
     if (mapView_) {
         return;
@@ -176,7 +155,6 @@ static NSString * const kCellIdentifier = @"pathcellid";
     polyLine_ = [[GMSPolyline alloc] init];
     polyLine_.strokeWidth = 2;
     polyLine_.map = mapView_;
-    GMSMutablePath *path = [GMSMutablePath path];
     polyLine_.path = self.viewModel.optimalPathData[indexPath.row][@"path"];
 }
 #pragma mark -
@@ -190,7 +168,6 @@ static NSString * const kCellIdentifier = @"pathcellid";
     polyLine_.path = self.viewModel.optimalPath;
     polyLine_.strokeWidth = 2;
     polyLine_.map = mapView_;
-    //polyLine.spans = [self gradientSpansForArrayCount:self.viewModel.optimalPathModel.optimalPath.count];
     [tableView_ reloadData];
 
 }
