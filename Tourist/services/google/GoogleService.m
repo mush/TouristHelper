@@ -30,10 +30,11 @@
     return @"2000";
 }
 #pragma mark -
+#pragma mark - BaseService
 -(NSURL *)baseURL{
     return [NSURL URLWithString:@"https://maps.googleapis.com"];
 }
-
+#pragma mark -
 -(BFTask *)taskForRadarSearchForCoordinate:(CLLocationCoordinate2D)coordinate types:(NSArray *)types{
     
     //https://maps.googleapis.com/maps/api/place/radarsearch/json?location=51.503186,-0.126446&radius=5000&types=museum&key=AIzaSyD_1wjarbzsxkpAYz_RoKX0CIzS0Ba7USs
@@ -46,18 +47,7 @@
     
     
     return [[self getRequestTaskForPath:@"/maps/api/place/radarsearch/json" withParams:parameters] continueWithSuccessBlock:^id(BFTask *task) {
-//        NSMutableArray *places = [NSMutableArray array];
-//        NSError *error = nil;
-//        for (id place in task.result[@"results"]) {
-//            GooglePlaceVO *placeVO = [[GooglePlaceVO alloc] initWithDictionary:place error:&error];
-//            if (!error) {
-//                [places addObject:placeVO];
-//            }else{
-//                error = nil;
-//                NSLog(@"%@", [error description]);
-//            }
-//        }
-//        return places;
+
         NSMutableArray *placeDetailsTasks = [NSMutableArray array];
 
         NSArray *slicedResult;
