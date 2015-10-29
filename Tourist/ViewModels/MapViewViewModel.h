@@ -53,4 +53,7 @@
  */
 @property(readonly, nonatomic) GMSPath *optimalPath;
 
+
+@property(readonly, nonatomic) NSString *tableHeaderText;
+
 @end

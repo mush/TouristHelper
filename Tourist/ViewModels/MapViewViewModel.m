@@ -20,6 +20,7 @@
 @property(strong, nonatomic) NSString* rightNavButtonTitle;
 @property(strong, nonatomic) NSMutableArray *optimalPathData;
 @property(strong, nonatomic) GMSPath *optimalPath;
+@property(strong, nonatomic) NSString *tableHeaderText;
 
 @end
 
@@ -33,6 +34,8 @@
 
     if (self = [super init]) {
         _firstLocationUpdate = NO;
+        
+        self.tableHeaderText = @"Optimal Path";
         
         googleService_ = [[GoogleService alloc] init];
         googleService_.delegate = self;

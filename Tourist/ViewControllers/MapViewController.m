@@ -125,8 +125,6 @@ static NSString * const kCellIdentifier = @"pathcellid";
     
     [self setupMapView];
     
-    //[self setupTableView];
-    
     [self setupKVO];
     
 }
@@ -136,7 +134,7 @@ static NSString * const kCellIdentifier = @"pathcellid";
 #pragma mark - UITableViewDelegate
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UILabel *lbl = [UILabel new];
-    lbl.text = @"Optimal Path";
+    lbl.text = self.viewModel.tableHeaderText;
     lbl.textAlignment = NSTextAlignmentCenter;
     return lbl;
 }
