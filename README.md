@@ -8,8 +8,11 @@
 * KVOController: KVO helper.
 * Masonry: Autolayout constraint framework.
 
+## Optimal Path Algorithm:
+This is actually a TSP problem. But since we are talking about more than 100 nodes than the basic TSP is going to be impractical. Hence, a simple greedy approach is taken (which sometimes may give a result far from best optimal but it serves the purpose for this demo.) The implementation is isolated in such a way that it can be easily replaced with better one (like one of the variants of TSP).
+
 ## Setup:
-[Cocoapods](http://cocoapods.org) needs to installed first. Then after cloning, from the project directory run
+[Cocoapods](http://cocoapods.org) needs to be installed first. Then after cloning, from the project directory run
 ```
 pod install
 ```
